@@ -53,3 +53,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server running 🚀");
 });
+
+app.delete("/tasks/:id", (req, res) => {
+  tasks = tasks.filter(t => t.id != req.params.id);
+  res.json({ success: true });
+});
