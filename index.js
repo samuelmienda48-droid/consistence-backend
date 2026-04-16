@@ -16,12 +16,13 @@ app.get("/tasks", (req, res) => {
 // Create task
 app.post("/tasks", (req, res) => {
   const task = {
-    id: Date.now(),
-    name: req.body.name,
-    status: "Pending",
-    streak: 0,
-    missed: 0
-  };
+  id: Date.now(),
+  user: req.body.user,
+  name: req.body.name,
+  status: "Pending",
+  streak: 0,
+  missed: 0
+};
 
   tasks.push(task);
   res.json(task);
