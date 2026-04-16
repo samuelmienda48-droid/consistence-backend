@@ -9,10 +9,10 @@ app.use(express.json());
 let tasks = [];
 
 // Get tasks
-app.get("/tasks", (req, res) => {
-  res.json(tasks);
+app.get("/tasks/:user", (req, res) => {
+  const userTasks = tasks.filter(t => t.user === req.params.user);
+  res.json(userTasks);
 });
-
 // Create task
 app.post("/tasks", (req, res) => {
   const task = {
